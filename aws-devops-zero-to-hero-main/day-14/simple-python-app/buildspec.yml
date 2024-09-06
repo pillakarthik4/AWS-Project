@@ -20,15 +20,11 @@ phases:
     commands:
       - echo "Running tests..."
       - cd aws-devops-zero-to-hero-main/day-14/simple-python-app/
+      - echo "Docker Registry Username: $DOCKER_REGISTRY_USERNAME"
+      - echo "Docker Registry URL: $DOCKER_REGISTRY_URL"
       - echo "Building Docker image..."
-      
-      # Docker login
-      - echo "$DOCKER_REGISTRY_PASSWORD" | docker login -u "$DOCKER_REGISTRY_USERNAME" --password-stdin "$DOCKER_REGISTRY_URL"
-      
-      # Build and tag Docker image
-      - docker build -t "karthikpilla/simple-python-flask-app:latest" .
-      
-      # Push Docker image to the repository
+      - echo "$DOCKER_REGISTRY_PASSWORD" | docker login -u "$DOCKER_REGISTRY_USERNAME" --password-stdin
+      - docker build -t "$DOCKER_REGISTRY_USERNAME/simple-python-flask-app:latest" .
       - docker push "$DOCKER_REGISTRY_USERNAME/simple-python-flask-app:latest"
 
   post_build:
