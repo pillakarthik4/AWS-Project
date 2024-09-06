@@ -29,7 +29,7 @@ phases:
       - docker build -t "karthikpilla/simple-python-flask-app:latest" .
       
       # Push Docker image to the repository
-      - docker push "$docker.io/karthikpilla/simple-python-flask-app:latest"
+      - docker push "docker push karthikpilla/simple-python-flask-app:latest"
 
   post_build:
     commands:
