@@ -20,8 +20,13 @@ phases:
     commands:
       - echo "Running tests..."
       - cd aws-devops-zero-to-hero-main/day-14/simple-python-app/
+<<<<<<< HEAD
       - echo Docker Registry Username: "$DOCKER_REGISTRY_USERNAME"
       - echo Docker Registry URL: "$DOCKER_REGISTRY_URL"
+=======
+      - echo "Docker Registry Username: $DOCKER_REGISTRY_USERNAME"
+      - echo "Docker Registry URL: $DOCKER_REGISTRY_URL"
+>>>>>>> 34654ead75c98676e33ddea65c220c3c883b0c66
       - echo "Building Docker image..."
       - echo "$DOCKER_REGISTRY_PASSWORD" | docker login -u "$DOCKER_REGISTRY_USERNAME" --password-stdin
       - docker build -t "$DOCKER_REGISTRY_USERNAME/simple-python-flask-app:latest" .
